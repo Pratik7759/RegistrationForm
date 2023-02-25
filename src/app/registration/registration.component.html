@@ -1,0 +1,70 @@
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="parent-form-group">
+        <div class="user-details">
+          <div class="input-box">
+            <label for="name">Name:<span style="color: red">*</span> </label>
+            <input id="name" type="text" formControlName="name" />
+            <span
+              style="color: red"
+              *ngIf="name && name.invalid && name.touched"
+              >Please fill your correct name</span
+            >
+          </div>
+        </div>
+
+        <div class="user-details">
+          <div class="input-box">
+            <label for="email">Email:<span style="color: red">*</span> </label>
+            <input id="email" type="email" formControlName="email" />
+            <span
+              style="color: red"
+              *ngIf="email && email.invalid && email.touched"
+              >Please fill your email</span
+            >
+          </div>
+        </div>
+
+        <div class="user-details">
+          <div class="input-box">
+            <label for="age">Age:<span style="color: red">*</span> </label>
+            <input id="age" type="number" formControlName="age" />
+            <span style="color: red" *ngIf="age && age.invalid && age.touched"
+              >Please fill valid age</span
+            >
+          </div>
+        </div>
+
+        <div class="user-details">
+          <div class="input-box">
+            <label for="contact"
+              >Contact:<span style="color: red">*</span>
+            </label>
+            <input id="contact" type="number" formControlName="contact" />
+            <span
+              style="color: red"
+              *ngIf="contact && contact.invalid && contact.touched"
+              >Please fill your contact number</span
+            >
+          </div>
+        </div>
+
+        <div class="user-details">
+          <div class="input-box">
+            <label for="place">Place:<span style="color: red">*</span> </label>
+            <input id="place" type="text" formControlName="place" />
+          </div>
+        </div>
+      </div>
+      <div class="button">
+        <button type="submit" [disabled]="!registrationForm.valid">
+          Submit
+        </button>
+      </div>
+
+      <p>Form Status: {{ registrationForm.status }}</p>
+    </form>
+  </div>
+</body>
